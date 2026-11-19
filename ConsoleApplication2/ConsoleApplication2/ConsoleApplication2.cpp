@@ -381,6 +381,28 @@ public:
 		return -1;
 	}
 
+	
+	bool abundent(int n)
+	{
+		int Sumdiv = 0,k;
+		float Raport1;
+		for (int i = 1; i <= n; i++)
+			if (n % i == 0)
+				Sumdiv += i;
+		Raport1 = Sumdiv / n;
+		float Raport2;
+		for (k = 1; k <= n - 1; k++)
+		{
+			Sumdiv = 0;
+			for (int i = 1; i <= k; i++)
+				if (k % i == 0)
+					Sumdiv += i;
+			Raport2 = Sumdiv / k;
+			if (Raport2 > Raport1)
+				return false;
+		}
+		return true;
+	}
 };
 
 class Statics {
